@@ -9,10 +9,15 @@ import com.ceiba.adn.domain.ports.ChairRepository;
 
 @Service
 public class LookForChairs {
-	
+
 	private ChairRepository iChairRepository;
-	
-	public List<Chair> getAll(){
+
+	public LookForChairs(ChairRepository iChairRepository) {
+		super();
+		this.iChairRepository = iChairRepository;
+	}
+
+	public List<Chair> getAll() {
 		return iChairRepository.findAll();
 	}
 }

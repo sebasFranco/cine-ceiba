@@ -1,4 +1,4 @@
-package com.ceiba.adn.infrastructure.adapter.controller;   
+package com.ceiba.adn.infrastructure.adapter.controller;
 
 import java.util.List;
 
@@ -14,8 +14,11 @@ import com.ceiba.adn.domain.model.Chair;
 @RequestMapping("/chairs")
 public class ChairController {
 
-	@Autowired
-	LookForChairs lookForChairsService;
+	private LookForChairs lookForChairsService;
+
+	public ChairController(LookForChairs lookForChairsService) {
+		this.lookForChairsService = lookForChairsService;
+	}
 
 	@GetMapping()
 	public List<Chair> getAllS() {

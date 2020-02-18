@@ -18,9 +18,14 @@ import com.ceiba.adn.infrastructure.adapter.jpa.mapper.ChairMapper;
 @Transactional
 public class ChairRepositoryJpa implements ChairRepository {
 
-	@Autowired
+	
 	private JpaChairRepository repositoryChair;
 
+	@Autowired
+    public ChairRepositoryJpa (JpaChairRepository repositoryChair){
+        this.repositoryChair = repositoryChair;
+    }
+	
 	@Override
 	public List<Chair> findAll() {
 		List<Chair> sillas = new ArrayList<>();

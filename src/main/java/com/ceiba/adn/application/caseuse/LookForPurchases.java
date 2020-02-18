@@ -9,10 +9,15 @@ import com.ceiba.adn.domain.ports.PurchaseRepository;
 
 @Service
 public class LookForPurchases {
-	
+
 	private PurchaseRepository iPurchaseRepository;
-	
-	public List<Purchase> getAll(){
+
+	public LookForPurchases(PurchaseRepository iPurchaseRepository) {
+		super();
+		this.iPurchaseRepository = iPurchaseRepository;
+	}
+
+	public List<Purchase> getAll() {
 		return iPurchaseRepository.findAll();
 	}
 }

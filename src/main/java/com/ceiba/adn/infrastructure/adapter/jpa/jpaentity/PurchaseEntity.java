@@ -15,12 +15,15 @@ public class PurchaseEntity {
 	private Long chair;
 
 	@NotNull
+	@Column(name="id_client")
 	private Long idClient;
 
 	@NotNull
+	@Column(name="purchase_time")
 	private int purchaseTime;
 
 	@NotNull
+	@Column(name="purchase_day")
 	private int purchaseDay;
 
 	@NotNull
@@ -46,6 +49,10 @@ public class PurchaseEntity {
 		return idClient;
 	}
 
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
+	}
+
 	public int getPurchaseTime() {
 		return purchaseTime;
 	}
@@ -62,10 +69,6 @@ public class PurchaseEntity {
 		this.purchaseDay = purchaseDay;
 	}
 
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
-	}
-
 	public double getTotal() {
 		return total;
 	}
@@ -74,4 +77,5 @@ public class PurchaseEntity {
 		this.total = total;
 	}
 
+	
 }

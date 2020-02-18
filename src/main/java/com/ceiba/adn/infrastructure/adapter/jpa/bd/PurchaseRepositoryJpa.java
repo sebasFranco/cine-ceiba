@@ -14,17 +14,21 @@ import com.ceiba.adn.domain.ports.ChairRepository;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.PurchaseEntity;
 import com.ceiba.adn.infrastructure.adapter.jpa.jparepository.JpaPurchaseRepository;
 import com.ceiba.adn.infrastructure.adapter.jpa.mapper.PurchaseMapper;
- 
+
 @Repository
 @Transactional
-public class PurchaseRepositoryJpa implements PurchaseRepository{
-	
-	@Autowired
+public class PurchaseRepositoryJpa implements PurchaseRepository {
+
 	private JpaPurchaseRepository repositoryPurchase;
-	
+
+	@Autowired
+	public PurchaseRepositoryJpa(JpaPurchaseRepository repositoryPurchase) {
+		this.repositoryPurchase = repositoryPurchase;
+	}
+
 	@Autowired
 	private ChairRepository repositoryChair;
-	
+
 	@Override
 	public List<Purchase> findAll() {
 		List<Purchase> purchases = new ArrayList<>();

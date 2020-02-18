@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,13 +24,9 @@ import com.ceiba.adn.domain.model.Purchase;
 @RequestMapping("/Purchase")
 public class PurchaseController {
 
-	@Autowired
 	private CreatePurchase purchaseService;
-	@Autowired
 	private LookForPurchase deleteService;
-	@Autowired
 	private LookForPurchases lookForPurchaseService;
-	@Autowired
 	private SavePurchase savePurchaseService;
 
 	public PurchaseController(CreatePurchase compraService, LookForPurchase borrarService, LookForPurchases buscarComprasService) {
@@ -42,8 +40,8 @@ public class PurchaseController {
 		return purchaseService.createPurchase(chairCommand);
 	}
 	
-	@PostMapping
-	public Purchase savePurchase(@RequestParam PurchaseCommand purchaseCommand) {
+	@PutMapping
+	public Purchase savePurchase(@RequestBody PurchaseCommand purchaseCommand) {
 		return savePurchaseService.savePurchase(purchaseCommand);
 	}
 	
