@@ -89,7 +89,7 @@ public class Purchase {
 				this.setTotal(TicketValue.INITIAL_VALUE);
 			}
 		} else {
-			throw new InvalidPurchaseTimeException("Solamente puede comprar boletas máximo hasta 1 hora antes de la función");
+			throw new InvalidPurchaseTimeException("Solamente puede comprar boletas maximo hasta 1 hora antes de la función");
 		}
 	}
 
