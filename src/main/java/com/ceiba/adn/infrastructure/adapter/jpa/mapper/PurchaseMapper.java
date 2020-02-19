@@ -13,9 +13,9 @@ public interface PurchaseMapper {
 
 	PurchaseMapper MAPPER = Mappers.getMapper(PurchaseMapper.class);
 
-	Purchase toPurchase(PurchaseEntity PurchaseEntity);
+	Purchase toPurchase(PurchaseEntity purchaseEntity);
 
-	List<Purchase> toPurchases(List<PurchaseEntity> PurchaseEntity);
+	List<Purchase> toPurchases(List<PurchaseEntity> purchaseEntity);
 
 	PurchaseEntity toPurchaseEntity(Purchase purchase);
 

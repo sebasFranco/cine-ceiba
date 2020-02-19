@@ -13,7 +13,7 @@ public interface ChairMapper {
 
 	ChairMapper MAPPER = Mappers.getMapper(ChairMapper.class);
 
-	Chair toChair(ChairEntity ChairEntity);
+	Chair toChair(ChairEntity chairEntity);
 
 	List<Chair> toChairs(List<ChairEntity> chairEntity);
 

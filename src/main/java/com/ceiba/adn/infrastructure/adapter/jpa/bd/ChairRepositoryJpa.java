@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.domain.ports.ChairRepository;
-import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.ChairEntity;
 import com.ceiba.adn.infrastructure.adapter.jpa.jparepository.JpaChairRepository;
 import com.ceiba.adn.infrastructure.adapter.jpa.mapper.ChairMapper;
 
