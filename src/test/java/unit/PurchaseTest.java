@@ -13,24 +13,7 @@ import static builder.PurchaseBuilder.anPurchase;
 class PurchaseTest {
 
 	@Test
-	void testValidatePurchaseMorningTimeSeven() {
-
-		double finalValue;
-
-		// Arrange
-		Purchase purchase = anPurchase().withPurchaseTime(7).build();
-		
-		// Act
-		purchase.validatePurchaseTime(purchase.getPurchaseTime());
-
-		finalValue = purchase.getTotal();
-
-		// Assert
-		assertEquals(TicketValue.INITIAL_VALUE * 0.5, finalValue);
-	}
-
-	@Test
-	void testValidatePurchaseMorningTimeEight() {
+	void testValidatePurchaseMorningTime() {
 
 		double finalValue;
 
@@ -46,22 +29,6 @@ class PurchaseTest {
 		assertEquals(TicketValue.INITIAL_VALUE * 0.5, finalValue);
 	}
 
-	@Test
-	void testValidatePurchaseMorningTimeNine() {
-
-		double finalValue;
-
-		// Arrange
-		Purchase purchase = anPurchase().withPurchaseTime(9).build();
-		
-		// Act
-		purchase.validatePurchaseTime(purchase.getPurchaseTime());
-
-		finalValue = purchase.getTotal();
-
-		// Assert
-		assertEquals(TicketValue.INITIAL_VALUE * 0.5, finalValue);
-	}
 
 	@Test
 	void testValidatePurchaseAfternoonTime() {
