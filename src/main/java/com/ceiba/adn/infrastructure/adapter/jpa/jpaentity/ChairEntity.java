@@ -3,11 +3,9 @@ package com.ceiba.adn.infrastructure.adapter.jpa.jpaentity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import com.ceiba.adn.domain.model.Chair;
-
 @Entity
 @Table(name = "chairs")
-public class ChairEntity extends Chair{
+public class ChairEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +16,8 @@ public class ChairEntity extends Chair{
 
 	@NotNull
 	private boolean status;
+
+	public Long getId() {
+		return id;
+	}
 }
