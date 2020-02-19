@@ -6,6 +6,10 @@ public class Chair {
 	private String name;
 	private boolean status;
 
+	public Chair() {
+		super();
+	}
+
 	public Chair(Long id, String name, boolean status) {
 		super();
 		this.id = id;
