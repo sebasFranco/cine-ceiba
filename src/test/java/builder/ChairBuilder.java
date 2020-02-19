@@ -28,7 +28,7 @@ public class ChairBuilder {
 		this.status = status;
 		return this;
 	}
-	public static Chair build() {
+	public Chair build() {
 		return new Chair(id, name, status);
 	}
 	
