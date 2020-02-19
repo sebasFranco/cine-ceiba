@@ -1,6 +1,8 @@
 package caseuse;
 
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -42,9 +44,10 @@ class LookForChairsTest {
         //act
         List<Chair> chairResponse = this.lookForChairs.getAll();
         //assert
-        Assert.assertEquals(chairs.size(), chairResponse.size());
-        Assert.assertEquals( "A1", chairResponse.get(0).getName());
-        Assert.assertEquals( "A2", chairResponse.get(1).getName());
+        
+        Assertions.assertEquals(chairs.size(), chairResponse.size());
+        Assertions.assertEquals( "A1", chairResponse.get(0).getName());
+        Assertions.assertEquals( "A2", chairResponse.get(1).getName());
     }
 
 }
