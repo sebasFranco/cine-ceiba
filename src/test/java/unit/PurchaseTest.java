@@ -46,6 +46,22 @@ class PurchaseTest {
 	}
 
 	@Test
+	void testValidatePurchaseNoonTime() {
+
+		double finalValue;
+
+		// Arrange
+		Purchase purchase = anPurchase().withPurchaseTime(12).build();
+		
+		// Act
+		purchase.validatePurchaseTime(purchase.getPurchaseTime());
+		finalValue = purchase.getTotal();
+
+		// Assert
+		assertEquals(TicketValue.INITIAL_VALUE, finalValue);
+	}
+
+	@Test
 	void testValidatePurchaseWeekEndDay() {
 
 		double finalValue;

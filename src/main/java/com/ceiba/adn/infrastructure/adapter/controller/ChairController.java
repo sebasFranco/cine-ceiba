@@ -20,7 +20,7 @@ public class ChairController {
 		this.lookForChairsService = lookForChairsService;
 	}
 
-	@GetMapping()
+	@GetMapping
 	public List<Chair> getAllS() {
 		return lookForChairsService.getAll();
 	}
