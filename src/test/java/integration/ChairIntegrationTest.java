@@ -1,9 +1,9 @@
 package integration;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
 
@@ -16,21 +16,25 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import builder.ChairBuilder;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.text.ParseException;
+
+import javax.transaction.Transactional;
 
 
 @RunWith(SpringRunner.class)
@@ -50,7 +54,7 @@ class ChairIntegrationTest {
 	private Chair chair;
 	private ObjectWriter objectWriter;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws ParseException {
 		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
 		ChairBuilder chairBuilder = new ChairBuilder().withId(id).withName(name).withStatus(status);
@@ -63,11 +67,20 @@ class ChairIntegrationTest {
 		objectWriter = objectMapper.writer().withDefaultPrettyPrinter();
 	}
 
+	@Transactional
+	@Rollback(true)
 	@Test
-    @Ignore
-    public void findAllChairs() throws Exception {
-        mockMvc.perform(get("/chairs").contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andDo(print()).andExpect(status().isOk());
-    }
+//	@SqlGroup({
+//			@Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:integration/beforesavepeople.sql"),
+//			@Sql(executionPhase = ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:integration/aftersavepeople.sql") })
+
+	public void getPersonTest() throws Exception {
+		// arrange
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/chairs").contentType(MediaType.APPLICATION_JSON);
+		// act
+		mockMvc.perform(requestBuilder).andDo(print()).andExpect(status().isOk())
+		.andExpect(jsonPath("$[0].id", equalTo(1000))).andExpect(jsonPath("$[1].id", equalTo(2000)));
+	}
 	
 }
