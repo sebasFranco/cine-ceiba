@@ -1,30 +1,22 @@
 package com.ceiba.adn.infrastructure.adapter.jpa.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
 import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.ChairEntity;
 
-public class ChairMapper {
-	
-	
-	
-	private ChairMapper() {
-		super();
-	}
+import java.util.List;
 
-	public static Chair entityToDomain(ChairEntity entity) {
-		Chair domain = new Chair();
-		domain.setId(entity.getId());
-		domain.setName(entity.getName());
-		domain.setStatus(entity.isStatus());
-		return domain;
-	}
-	
-	public static ChairEntity domainToEntity(Chair domain) {
-		ChairEntity entity = new ChairEntity();
-		entity.setId(domain.getId());
-		entity.setName(domain.getName());
-		entity.setStatus(domain.isStatus());
-		return entity;
-	}
-	
+@Mapper
+public interface ChairMapper {
+
+	ChairMapper MAPPER = Mappers.getMapper(ChairMapper.class);
+
+	Chair toChair(ChairEntity ChairEntity);
+
+	List<Chair> toChairs(List<ChairEntity> chairEntity);
+
+	ChairEntity toChairEntity(Chair chair);
+
 }

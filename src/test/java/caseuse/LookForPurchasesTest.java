@@ -7,14 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.ceiba.adn.application.caseuse.LookForChairs;
 import com.ceiba.adn.application.caseuse.LookForPurchases;
-import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.domain.model.Purchase;
-import com.ceiba.adn.domain.ports.ChairRepository;
 import com.ceiba.adn.domain.ports.PurchaseRepository;
 
-import builder.ChairBuilder;
 import builder.PurchaseBuilder;
 
 import static org.mockito.Mockito.when;
@@ -52,5 +48,4 @@ class LookForPurchasesTest {
         Assertions.assertEquals(123456L, purchasesResponse.get(0).getIdClient());
         Assertions.assertEquals(654321L, purchasesResponse.get(1).getIdClient());
     }
-
 }

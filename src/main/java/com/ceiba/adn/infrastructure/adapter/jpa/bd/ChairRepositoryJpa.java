@@ -1,6 +1,5 @@
 package com.ceiba.adn.infrastructure.adapter.jpa.bd;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -28,20 +27,17 @@ public class ChairRepositoryJpa implements ChairRepository {
 	
 	@Override
 	public List<Chair> findAll() {
-		List<Chair> sillas = new ArrayList<>();
-		List<ChairEntity> entityList = repositoryChair.findAll();
-		entityList.forEach(value -> sillas.add(ChairMapper.entityToDomain(value)));
-		return sillas;
+		return ChairMapper.MAPPER.toChairs(repositoryChair.findAll());
 	}
 
 	@Override
 	public Chair save(Chair chair) {
 		chair.setStatus((chair.isStatus())?false:true);
-		return ChairMapper.entityToDomain(repositoryChair.save(ChairMapper.domainToEntity(chair)));
+		return chair;
 	}
 	
 	@Override
 	public Chair findById(Long id) {
-		return ChairMapper.entityToDomain(repositoryChair.getOne(id));
+		return ChairMapper.MAPPER.toChair(repositoryChair.getOne(id));
 	}
 }

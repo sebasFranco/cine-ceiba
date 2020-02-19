@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.adn.application.caseuse.LookForPurchase;
+import com.ceiba.adn.application.caseuse.DeletePurchase;
 import com.ceiba.adn.application.caseuse.LookForPurchases;
 import com.ceiba.adn.application.caseuse.CreatePurchase;
 import com.ceiba.adn.application.caseuse.SavePurchase;
@@ -25,11 +25,11 @@ import com.ceiba.adn.domain.model.Purchase;
 public class PurchaseController {
 
 	private CreatePurchase purchaseService;
-	private LookForPurchase deleteService;
+	private DeletePurchase deleteService;
 	private LookForPurchases lookForPurchaseService;
 	private SavePurchase savePurchaseService;
 
-	public PurchaseController(CreatePurchase compraService, LookForPurchase borrarService, LookForPurchases buscarComprasService) {
+	public PurchaseController(CreatePurchase compraService, DeletePurchase borrarService, LookForPurchases buscarComprasService) {
 		this.purchaseService = compraService;
 		this.deleteService = borrarService;
 		this.lookForPurchaseService = buscarComprasService;

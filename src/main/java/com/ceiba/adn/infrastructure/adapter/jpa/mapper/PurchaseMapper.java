@@ -1,36 +1,22 @@
 package com.ceiba.adn.infrastructure.adapter.jpa.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
 import com.ceiba.adn.domain.model.Purchase;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.PurchaseEntity;
 
-public class PurchaseMapper {
-	
-	
-	
-	private PurchaseMapper() {
-		super();
-	}
+import java.util.List;
 
-	public static Purchase entityToDomain(PurchaseEntity entity) {
-		Purchase domain = new Purchase();
-		domain.setId(entity.getId());
-		domain.setChair(entity.getChair());
-		domain.setIdClient(entity.getIdClient());
-		domain.setPurchaseTime(entity.getPurchaseTime());
-		domain.setPurchaseDay(entity.getPurchaseDay());
-		domain.setTotal(entity.getTotal());
-		return domain;
-	}
-	
-	public static PurchaseEntity domainToEntity(Purchase domain) {
-		PurchaseEntity entity = new PurchaseEntity();
-		entity.setId(domain.getId());
-		entity.setChair(domain.getChair());
-		entity.setIdClient(domain.getIdClient());
-		entity.setPurchaseTime(domain.getPurchaseTime());
-		entity.setPurchaseDay(domain.getPurchaseDay());
-		entity.setTotal(domain.getTotal());
-		return entity;
-	}
-	
+@Mapper
+public interface PurchaseMapper {
+
+	PurchaseMapper MAPPER = Mappers.getMapper(PurchaseMapper.class);
+
+	Purchase toPurchase(PurchaseEntity PurchaseEntity);
+
+	List<Purchase> toPurchases(List<PurchaseEntity> PurchaseEntity);
+
+	PurchaseEntity toPurchaseEntity(Purchase purchase);
+
 }
