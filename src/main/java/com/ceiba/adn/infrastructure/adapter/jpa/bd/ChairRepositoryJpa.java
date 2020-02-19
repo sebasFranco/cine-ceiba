@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ceiba.adn.domain.model.Chair;
@@ -17,30 +18,22 @@ import com.ceiba.adn.infrastructure.adapter.jpa.mapper.ChairMapper;
 @Transactional
 public class ChairRepositoryJpa implements ChairRepository {
 
-	private ChairMapper chairMapper;
-
 	private JpaChairRepository repositoryChair;
 
 	public ChairRepositoryJpa() {
 		super();
 	}
 
+	@Autowired
 	public ChairRepositoryJpa(JpaChairRepository repositoryChair) {
-		super();
-		this.repositoryChair = repositoryChair;
-	}
-
-	public ChairRepositoryJpa(ChairMapper chairMapper, JpaChairRepository repositoryChair) {
-		this.chairMapper = chairMapper;
 		this.repositoryChair = repositoryChair;
 	}
 
 	@Override
 	public List<Chair> findAll() {
-		List<Chair> chairs = new ArrayList<Chair>();
-		for(ChairEntity chairEntity: repositoryChair.findAll()) {
-			chairs.add(chairMapper.toChair(chairEntity));
-		}
+		List<Chair> chairs = new ArrayList<>();
+		List<ChairEntity> chairsEntity = repositoryChair.findAll();
+		chairsEntity.forEach(value -> chairs.add(ChairMapper.entityToDomain(value)));
 		return chairs;
 	}
 
@@ -52,6 +45,6 @@ public class ChairRepositoryJpa implements ChairRepository {
 
 	@Override
 	public Chair findById(Long id) {
-		return chairMapper.toChair(repositoryChair.getOne(id));
+		return ChairMapper.entityToDomain(repositoryChair.getOne(id));
 	}
 }

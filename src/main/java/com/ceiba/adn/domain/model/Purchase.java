@@ -17,7 +17,6 @@ public class Purchase {
 	private double total;
 
 	public Purchase() {
-		super();
 	}
 
 	public Purchase(Long id, Long chair, Long idClient, int purchaseTime, int purchaseDay, double total) {
@@ -30,8 +29,12 @@ public class Purchase {
 		this.total = total;
 	}
 
-	public Long getIdClient() {
-		return idClient;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getChair() {
@@ -42,12 +45,28 @@ public class Purchase {
 		this.chair = chair;
 	}
 
+	public Long getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
+	}
+
 	public int getPurchaseTime() {
 		return purchaseTime;
 	}
 
+	public void setPurchaseTime(int purchaseTime) {
+		this.purchaseTime = purchaseTime;
+	}
+
 	public int getPurchaseDay() {
 		return purchaseDay;
+	}
+
+	public void setPurchaseDay(int purchaseDay) {
+		this.purchaseDay = purchaseDay;
 	}
 
 	public double getTotal() {

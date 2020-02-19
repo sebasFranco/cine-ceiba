@@ -13,7 +13,6 @@ public class LookForChairs {
 	private ChairRepository iChairRepository;
 
 	public LookForChairs(ChairRepository iChairRepository) {
-		super();
 		this.iChairRepository = iChairRepository;
 	}
 
