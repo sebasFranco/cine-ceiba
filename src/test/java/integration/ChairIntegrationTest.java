@@ -1,9 +1,20 @@
 package integration;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.text.ParseException;
+
+
+import com.ceiba.adn.AdnApplication;
+import com.ceiba.adn.domain.model.Chair;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import builder.ChairBuilder;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -16,18 +27,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.ceiba.adn.AdnApplication;
-import com.ceiba.adn.domain.model.Chair;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.text.ParseException;
 
-import builder.ChairBuilder;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AdnApplication.class)
@@ -63,7 +67,7 @@ class ChairIntegrationTest {
     @Ignore
     public void findAllChairs() throws Exception {
         mockMvc.perform(get("/chairs").contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andDo(print()).andExpect(MockMvcResultMatchers.status().isOk());
+                .andDo(print()).andExpect(status().isOk());
     }
 	
 }
