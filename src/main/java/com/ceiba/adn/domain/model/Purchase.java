@@ -30,12 +30,8 @@ public class Purchase {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	public Long getIdClient() {
+		return idClient;
 	}
 
 	public Long getChair() {
@@ -46,28 +42,12 @@ public class Purchase {
 		this.chair = chair;
 	}
 
-	public Long getIdClient() {
-		return idClient;
-	}
-
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
-	}
-
 	public int getPurchaseTime() {
 		return purchaseTime;
 	}
 
-	public void setPurchaseTime(int purchaseTime) {
-		this.purchaseTime = purchaseTime;
-	}
-
 	public int getPurchaseDay() {
 		return purchaseDay;
-	}
-
-	public void setPurchaseDay(int purchaseDay) {
-		this.purchaseDay = purchaseDay;
 	}
 
 	public double getTotal() {
@@ -79,7 +59,7 @@ public class Purchase {
 	}
 
 	public void validatePurchaseTime(int actualTime) {
-		
+
 		if (actualTime < MovieTime.MOVIE_TIME) {
 			if (actualTime >= 7 && actualTime < 10) {
 				this.setTotal(TicketValue.INITIAL_VALUE * 0.5);
@@ -89,7 +69,8 @@ public class Purchase {
 				this.setTotal(TicketValue.INITIAL_VALUE);
 			}
 		} else {
-			throw new InvalidPurchaseTimeException("Solamente puede comprar boletas maximo hasta 1 hora antes de la funcion");
+			throw new InvalidPurchaseTimeException(
+					"Solamente puede comprar boletas maximo hasta 1 hora antes de la funcion");
 		}
 	}
 

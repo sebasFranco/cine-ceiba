@@ -6,10 +6,6 @@ public class Chair {
 	private String name;
 	private boolean status;
 
-	public Chair() {
-		super();
-	}
-
 	public Chair(Long id, String name, boolean status) {
 		super();
 		this.id = id;
@@ -17,20 +13,8 @@ public class Chair {
 		this.status = status;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public boolean isStatus() {

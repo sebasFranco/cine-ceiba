@@ -26,5 +26,11 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/juan.franco/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-jdk8/1.2.0.Final/efba1f379a16a29d2adaaeeac4286a37c3ebe916/mapstruct-jdk8-1.2.0.Final.jar" sourcepath="C:/Users/juan.franco/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-jdk8/1.2.0.Final/f551d416a39cb2852a8f27ae544cf8730576e09d/mapstruct-jdk8-1.2.0.Final-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>

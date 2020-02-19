@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ceiba.adn.domain.model.Purchase;
@@ -19,33 +18,52 @@ public class PurchaseRepositoryJpa implements PurchaseRepository {
 
 	private JpaPurchaseRepository repositoryPurchase;
 
-	@Autowired
+	private PurchaseMapper purchaseMapper;
+
+	private ChairRepository repositoryChair;
+
+	
+	
+	public PurchaseRepositoryJpa() {
+		super();
+	}
+
+	public PurchaseRepositoryJpa(ChairRepository repositoryChair) {
+		super();
+		this.repositoryChair = repositoryChair;
+	}
+
 	public PurchaseRepositoryJpa(JpaPurchaseRepository repositoryPurchase) {
+		super();
 		this.repositoryPurchase = repositoryPurchase;
 	}
 
-	@Autowired
-	private ChairRepository repositoryChair;
+	public PurchaseRepositoryJpa(JpaPurchaseRepository repositoryPurchase, PurchaseMapper purchaseMapper,
+			ChairRepository repositoryChair) {
+		this.repositoryPurchase = repositoryPurchase;
+		this.purchaseMapper = purchaseMapper;
+		this.repositoryChair = repositoryChair;
+	}
 
 	@Override
 	public List<Purchase> findAll() {
-		return PurchaseMapper.MAPPER.toPurchases(repositoryPurchase.findAll()) ;
+		return purchaseMapper.toPurchases(repositoryPurchase.findAll());
 	}
 
 	@Override
 	public Purchase findById(Long id) {
-		return PurchaseMapper.MAPPER.toPurchase(repositoryPurchase.getOne(id));
+		return purchaseMapper.toPurchase(repositoryPurchase.getOne(id));
 	}
 
 	@Override
 	public Purchase save(Purchase purchase) {
 		repositoryChair.save(repositoryChair.findById(purchase.getChair()));
-		return PurchaseMapper.MAPPER.toPurchase(repositoryPurchase.save(PurchaseMapper.MAPPER.toPurchaseEntity(purchase)));
+		return purchaseMapper.toPurchase(repositoryPurchase.save(purchaseMapper.toPurchaseEntity(purchase)));
 	}
 
 	@Override
 	public void deletePurchase(Purchase purchase) {
 		repositoryChair.save(repositoryChair.findById(purchase.getChair()));
-		repositoryPurchase.deleteById(PurchaseMapper.MAPPER.toPurchaseEntity(purchase).getId());
+		repositoryPurchase.deleteById(purchaseMapper.toPurchaseEntity(purchase).getId());
 	}
 }
