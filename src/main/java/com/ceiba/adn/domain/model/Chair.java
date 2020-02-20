@@ -20,28 +20,20 @@ public class Chair {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
-	public void changeStatus(Chair chair) {
-		chair.setStatus((chair.isStatus()) ? false : true);
+	public void changeStatus(boolean status) {
+		if (status) {
+			this.status = false;
+		} else {
+			this.status = true;
+		}
 	}
 
 }

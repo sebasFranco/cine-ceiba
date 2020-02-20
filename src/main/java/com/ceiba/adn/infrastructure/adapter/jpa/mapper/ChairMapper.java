@@ -4,20 +4,14 @@ import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.ChairEntity;
 
 public class ChairMapper {
+	
+	private ChairMapper() {}
 
 	public static Chair entityToDomain(ChairEntity entity) {
-        Chair domain = new Chair();
-        domain.setId(entity.getId());
-        domain.setName(entity.getName());
-        domain.setStatus(entity.isStatus());
-        return domain;
+        return new Chair(entity.getId(),entity.getName(),entity.isStatus());
     }
 
     public static ChairEntity domainToEntity(Chair domain) {
-        ChairEntity entity = new ChairEntity();
-        entity.setId(domain.getId());
-        entity.setName(domain.getName());
-        entity.setStatus(domain.isStatus());
-        return entity;
+    	return new ChairEntity(domain.getId(),domain.getName(),domain.isStatus());
     }
 }

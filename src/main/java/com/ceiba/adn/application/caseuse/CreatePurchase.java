@@ -19,9 +19,8 @@ public class CreatePurchase {
 	}
 
 	public Purchase createPurchase(ChairCommand chairCommand) {
-		Purchase purchase = new Purchase();
+		Purchase purchase = new Purchase(chairCommand.getId());
 
-		purchase.setChair(chairCommand.getId());
 		purchase.validatePurchaseTime(Calendar.HOUR_OF_DAY);
 		purchase.validatePurchaseDay(Calendar.DAY_OF_WEEK);
 

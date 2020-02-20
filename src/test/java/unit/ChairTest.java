@@ -17,7 +17,7 @@ class ChairTest {
 		Chair chair = anChair().withStatus(true).build();
 
 		// Act
-		chair.changeStatus(chair);
+		chair.changeStatus(chair.isStatus());
 
 		// Assert
 		assertEquals(false, chair.isStatus());

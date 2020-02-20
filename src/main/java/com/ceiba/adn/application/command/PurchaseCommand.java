@@ -9,10 +9,6 @@ public class PurchaseCommand {
 	private int purchaseDay;
 	private double total;
 
-	public PurchaseCommand() {
-		super();
-	}
-
 	public PurchaseCommand(Long id, Long chair, Long idClient, int purchaseTime, int purchaseDay, double total) {
 		super();
 		this.id = id;

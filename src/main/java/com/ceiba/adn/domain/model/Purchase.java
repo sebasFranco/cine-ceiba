@@ -29,63 +29,43 @@ public class Purchase {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
+	public Purchase(Long chair) {
+		this.chair = chair;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public Long getChair() {
 		return chair;
 	}
 
-	public void setChair(Long chair) {
-		this.chair = chair;
-	}
-
 	public Long getIdClient() {
 		return idClient;
-	}
-
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
 	}
 
 	public int getPurchaseTime() {
 		return purchaseTime;
 	}
 
-	public void setPurchaseTime(int purchaseTime) {
-		this.purchaseTime = purchaseTime;
-	}
-
 	public int getPurchaseDay() {
 		return purchaseDay;
-	}
-
-	public void setPurchaseDay(int purchaseDay) {
-		this.purchaseDay = purchaseDay;
 	}
 
 	public double getTotal() {
 		return total;
 	}
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
-
 	public void validatePurchaseTime(int actualTime) {
 
 		if (actualTime < MovieTime.MOVIE_TIME) {
 			if (actualTime >= 7 && actualTime < 10) {
-				this.setTotal(TicketValue.INITIAL_VALUE * 0.5);
+				this.total = TicketValue.INITIAL_VALUE * 0.5;
 			} else if (actualTime >= 14 && actualTime < 18) {
-				this.setTotal(TicketValue.INITIAL_VALUE * 1.5);
+				this.total = TicketValue.INITIAL_VALUE * 1.5;
 			} else {
-				this.setTotal(TicketValue.INITIAL_VALUE);
+				this.total = TicketValue.INITIAL_VALUE;
 			}
 		} else {
 			throw new InvalidPurchaseTimeException(
@@ -97,7 +77,7 @@ public class Purchase {
 
 		List<Integer> dayList = List.of(Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY);
 		if (dayList.contains(dayOfWeek)) {
-			this.setTotal(this.getTotal() * 2);
+			this.total = this.getTotal() * 2;
 		}
 	}
 

@@ -6,24 +6,12 @@ import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.PurchaseEntity;
 public class PurchaseMapper {
 
 	public static Purchase entityToDomain(PurchaseEntity entity) {
-		Purchase domain = new Purchase();
-		domain.setId(entity.getId());
-		domain.setChair(entity.getChair());
-		domain.setIdClient(entity.getIdClient());
-		domain.setPurchaseTime(entity.getPurchaseTime());
-		domain.setPurchaseDay(entity.getPurchaseDay());
-		domain.setTotal(entity.getTotal());
-		return domain;
+		return new Purchase(entity.getId(), entity.getChair(), entity.getIdClient(), entity.getPurchaseTime(),
+				entity.getPurchaseDay(), entity.getTotal());
 	}
 
 	public static PurchaseEntity domainToEntity(Purchase domain) {
-		PurchaseEntity entity = new PurchaseEntity();
-		entity.setId(domain.getId());
-		entity.setChair(domain.getChair());
-		entity.setIdClient(domain.getIdClient());
-		entity.setPurchaseTime(domain.getPurchaseTime());
-		entity.setPurchaseDay(domain.getPurchaseDay());
-		entity.setTotal(domain.getTotal());
-		return entity; 
+		return new PurchaseEntity(domain.getId(), domain.getChair(), domain.getIdClient(), domain.getPurchaseTime(),
+				domain.getPurchaseDay(), domain.getTotal());
 	}
 }

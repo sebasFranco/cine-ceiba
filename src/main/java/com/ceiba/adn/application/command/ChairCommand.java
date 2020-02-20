@@ -16,14 +16,4 @@ public class ChairCommand {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	
-	
 }
