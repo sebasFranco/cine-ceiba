@@ -10,7 +10,7 @@ public interface PurchaseRepository {
 	
 	Purchase findById(Long id);
 	
-	Purchase save(Purchase purchase);
+	void save(Purchase purchase);
 	
 	void deletePurchase(Purchase purchase);
 	

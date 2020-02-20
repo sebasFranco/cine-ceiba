@@ -7,14 +7,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.domain.model.Purchase;
 import com.ceiba.adn.domain.ports.PurchaseRepository;
 import com.ceiba.adn.domain.ports.ChairRepository;
-import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.ChairEntity;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.PurchaseEntity;
 import com.ceiba.adn.infrastructure.adapter.jpa.jparepository.JpaPurchaseRepository;
-import com.ceiba.adn.infrastructure.adapter.jpa.mapper.ChairMapper;
 import com.ceiba.adn.infrastructure.adapter.jpa.mapper.PurchaseMapper;
 
 @Repository
@@ -54,9 +51,9 @@ public class PurchaseRepositoryJpa implements PurchaseRepository {
 	}
 
 	@Override
-	public Purchase save(Purchase purchase) {
+	public void save(Purchase purchase) {
 		repositoryChair.save(repositoryChair.findById(purchase.getChair()));
-		return purchase;
+		repositoryPurchase.save(PurchaseMapper.domainToEntity(purchase));
 	}
 
 	@Override

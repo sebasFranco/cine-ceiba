@@ -32,7 +32,7 @@ public class ChairBuilder {
 		return new Chair(id, name, status);
 	}
 	
-	public static ChairBuilder anPurchase(){
+	public static ChairBuilder anChair(){
         return new ChairBuilder();
     }
 	

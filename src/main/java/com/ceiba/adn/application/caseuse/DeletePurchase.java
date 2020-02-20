@@ -16,10 +16,12 @@ public class DeletePurchase {
 		this.purchaseRepository = purchaseRepository;
 	}
 
-	public void deletePurchase(PurchaseCommand purchaseCommand) {
-		purchaseRepository.deletePurchase(new Purchase(purchaseCommand.getId(), purchaseCommand.getChair(),
+	public Purchase deletePurchase(PurchaseCommand purchaseCommand) {
+		Purchase purchase = new Purchase(purchaseCommand.getId(), purchaseCommand.getChair(),
 				purchaseCommand.getIdClient(), purchaseCommand.getPurchaseTime(), purchaseCommand.getPurchaseDay(),
-				purchaseCommand.getTotal()));
+				purchaseCommand.getTotal());
+		purchaseRepository.deletePurchase(purchase);
+		return purchase;
 	}
 
 }

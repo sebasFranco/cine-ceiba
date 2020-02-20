@@ -39,5 +39,9 @@ public class Chair {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	public void changeStatus(Chair chair) {
+		chair.setStatus((chair.isStatus()) ? false : true);
+	}
 
 }

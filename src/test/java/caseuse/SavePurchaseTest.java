@@ -1,6 +1,5 @@
 package caseuse;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,15 +7,18 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.ceiba.adn.application.caseuse.LookForChairs;
+import com.ceiba.adn.application.caseuse.CreatePurchase;
 import com.ceiba.adn.application.caseuse.DeletePurchase;
 import com.ceiba.adn.application.caseuse.LookForPurchases;
+import com.ceiba.adn.application.caseuse.SavePurchase;
+import com.ceiba.adn.application.command.ChairCommand;
 import com.ceiba.adn.application.command.PurchaseCommand;
 import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.domain.model.Purchase;
 import com.ceiba.adn.domain.ports.ChairRepository;
 import com.ceiba.adn.domain.ports.PurchaseRepository;
 
-import builder.ChairBuilder;
+import builder.ChairCommandBuilder;
 import builder.PurchaseBuilder;
 import builder.PurchaseCommandBuilder;
 
@@ -27,33 +29,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-class DeletePurchaseTest {
+class SavePurchaseTest {
 
-	private DeletePurchase deletePurchase;
-	
+	private SavePurchase savePurchase;
+
 	@Mock
 	private PurchaseRepository purchaseRepository;
-	
+
 	@BeforeEach
-	public void setup (){
-        MockitoAnnotations.initMocks(this);
-        this.deletePurchase = new DeletePurchase(purchaseRepository);
-    }
-	
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+		this.savePurchase = new SavePurchase(purchaseRepository);
+	}
+
 	@Test
-    public void deleteTest(){
+	public void saveTest() {
 		// arrange
 		Purchase purchase = new PurchaseBuilder().withId(1L).withChair(1L).withIdClient(123456L).build();
 
 		PurchaseCommand purchaseCommand = new PurchaseCommandBuilder().withId(1L).withChair(1L).withIdClient(123456L)
 				.build();
-		doNothing().when(this.purchaseRepository).deletePurchase(purchase);
+		doNothing().when(this.purchaseRepository).save(purchase);
 
 		// act
-		Purchase purchaseResponse = this.deletePurchase.deletePurchase(purchaseCommand);
-		
+		Purchase purchaseResponse = this.savePurchase.savePurchase(purchaseCommand);
+
 		// assert
+
 		Assertions.assertEquals(purchaseCommand.getIdClient(), purchaseResponse.getIdClient());
-    }
+		}
 
 }

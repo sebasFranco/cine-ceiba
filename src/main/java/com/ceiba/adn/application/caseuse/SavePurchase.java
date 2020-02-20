@@ -17,8 +17,10 @@ public class SavePurchase {
 	}
 
 	public Purchase savePurchase(PurchaseCommand purchaseCommand) {
-		return purchaseRepository.save(new Purchase(purchaseCommand.getId(), purchaseCommand.getChair(),
+		Purchase purchase = new Purchase(purchaseCommand.getId(), purchaseCommand.getChair(),
 				purchaseCommand.getIdClient(), purchaseCommand.getPurchaseTime(), purchaseCommand.getPurchaseDay(),
-				purchaseCommand.getTotal()));
+				purchaseCommand.getTotal());
+		purchaseRepository.save(purchase);
+		return purchase;
 	}
 }
