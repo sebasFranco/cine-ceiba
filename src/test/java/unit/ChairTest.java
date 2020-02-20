@@ -11,7 +11,7 @@ import static builder.ChairBuilder.anChair;
 class ChairTest {
 
 	@Test
-	void testChangeStatus() {
+	void testChangeStatusTrue() {
 
 		// Arrange
 		Chair chair = anChair().withStatus(true).build();
@@ -21,5 +21,18 @@ class ChairTest {
 
 		// Assert
 		assertEquals(false, chair.isStatus());
+	}
+	
+	@Test
+	void testChangeStatusFalse() {
+
+		// Arrange
+		Chair chair = anChair().withStatus(false).build();
+
+		// Act
+		chair.changeStatus(chair.isStatus());
+
+		// Assert
+		assertEquals(true, chair.isStatus());
 	}
 }
