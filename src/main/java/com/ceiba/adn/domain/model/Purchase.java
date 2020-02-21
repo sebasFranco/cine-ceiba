@@ -71,6 +71,7 @@ public class Purchase {
 			throw new InvalidPurchaseTimeException(
 					"Solamente puede comprar boletas maximo hasta 1 hora antes de la funcion");
 		}
+		this.purchaseTime = actualTime;
 	}
 
 	public void validatePurchaseDay(int dayOfWeek) {
@@ -79,6 +80,7 @@ public class Purchase {
 		if (dayList.contains(dayOfWeek)) {
 			this.total = this.getTotal() * 2;
 		}
+		this.purchaseDay = dayOfWeek;
 	}
 
 }

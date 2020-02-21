@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,9 +25,13 @@ import com.ceiba.adn.domain.model.Purchase;
 @RequestMapping("/Purchase")
 public class PurchaseController {
 
+	@Autowired
 	private CreatePurchase purchaseService;
+	@Autowired
 	private DeletePurchase deleteService;
+	@Autowired
 	private LookForPurchases lookForPurchaseService;
+	@Autowired
 	private SavePurchase savePurchaseService;
 
 	public PurchaseController(CreatePurchase compraService, DeletePurchase borrarService, LookForPurchases buscarComprasService) {
@@ -35,12 +40,12 @@ public class PurchaseController {
 		this.lookForPurchaseService = buscarComprasService;
 	}
 
-	@PostMapping
-	public Purchase createPurchase(@RequestParam ChairCommand chairCommand) {
+	@PutMapping
+	public Purchase createPurchase(@RequestBody ChairCommand chairCommand) {
 		return purchaseService.createPurchase(chairCommand);
 	}
 	
-	@PutMapping
+	@PostMapping
 	public Purchase savePurchase(@RequestBody PurchaseCommand purchaseCommand) {
 		return savePurchaseService.savePurchase(purchaseCommand);
 	}
@@ -50,8 +55,8 @@ public class PurchaseController {
 		return lookForPurchaseService.getAll();
 	}
 
-	@DeleteMapping("{id}")
-	public String delete(@RequestParam PurchaseCommand purchaseCommand) {
+	@PatchMapping
+	public String delete(@RequestBody PurchaseCommand purchaseCommand) {
 		deleteService.deletePurchase(purchaseCommand);
 		return "redirect:/purchase";
 	}

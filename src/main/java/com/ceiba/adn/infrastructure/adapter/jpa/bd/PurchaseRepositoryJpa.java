@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ceiba.adn.domain.model.Purchase;
@@ -18,8 +19,10 @@ import com.ceiba.adn.infrastructure.adapter.jpa.mapper.PurchaseMapper;
 @Transactional
 public class PurchaseRepositoryJpa implements PurchaseRepository {
 
+	@Autowired
 	private JpaPurchaseRepository repositoryPurchase;
 
+	@Autowired
 	private ChairRepository repositoryChair;
 
 	public PurchaseRepositoryJpa() {

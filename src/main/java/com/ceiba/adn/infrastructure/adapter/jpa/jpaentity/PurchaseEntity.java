@@ -29,6 +29,9 @@ public class PurchaseEntity {
 	@NotNull
 	private double total;
 
+	public PurchaseEntity() {
+	}
+
 	public PurchaseEntity(Long id, @NotNull Long chair, @NotNull Long idClient, @NotNull int purchaseTime,
 			@NotNull int purchaseDay, @NotNull double total) {
 		super();

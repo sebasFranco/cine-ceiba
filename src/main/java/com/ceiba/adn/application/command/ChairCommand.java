@@ -5,6 +5,9 @@ public class ChairCommand {
 	private String name;
 	private boolean status;
 
+	public ChairCommand() {
+	}
+
 	public ChairCommand(Long id, String name, boolean status) {
 		super();
 		this.id = id;
@@ -14,6 +17,14 @@ public class ChairCommand {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isStatus() {
+		return status;
 	}
 
 }

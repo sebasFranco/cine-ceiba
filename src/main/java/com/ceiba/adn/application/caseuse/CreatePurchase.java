@@ -13,6 +13,9 @@ public class CreatePurchase {
 
 	private PurchaseRepository iPurchaseRepository;
 
+	public CreatePurchase() {
+	}
+
 	public CreatePurchase(PurchaseRepository iPurchaseRepository) {
 		super();
 		this.iPurchaseRepository = iPurchaseRepository;

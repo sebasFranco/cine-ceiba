@@ -14,6 +14,7 @@ import com.ceiba.adn.domain.model.Chair;
 @RequestMapping("/chairs")
 public class ChairController {
 
+	@Autowired
 	private LookForChairs lookForChairsService;
 
 	public ChairController(LookForChairs lookForChairsService) {

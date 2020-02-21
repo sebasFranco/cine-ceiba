@@ -21,6 +21,9 @@ public class ChairEntity {
 	@NotNull
 	private boolean status;
 
+	public ChairEntity() {
+	}
+
 	public ChairEntity(Long id, @NotNull String name, @NotNull boolean status) {
 		super();
 		this.id = id;

@@ -1,5 +1,6 @@
 package com.ceiba.adn.application.caseuse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ceiba.adn.application.command.PurchaseCommand;
@@ -9,7 +10,11 @@ import com.ceiba.adn.domain.ports.PurchaseRepository;
 @Service
 public class DeletePurchase {
 
+	@Autowired
 	private PurchaseRepository purchaseRepository;
+
+	public DeletePurchase() {
+	}
 
 	public DeletePurchase(PurchaseRepository purchaseRepository) {
 		super();
