@@ -8,10 +8,10 @@ public class ChairMapper {
 	private ChairMapper() {}
 
 	public static Chair entityToDomain(ChairEntity entity) {
-        return new Chair(entity.getId(),entity.getName(),entity.isStatus());
+        return new Chair(entity.getId(),entity.getName(),entity.getStatus());
     }
 
     public static ChairEntity domainToEntity(Chair domain) {
-    	return new ChairEntity(domain.getId(),domain.getName(),domain.isStatus());
+    	return new ChairEntity(domain.getId(),domain.getName(),domain.getStatus());
     }
 }

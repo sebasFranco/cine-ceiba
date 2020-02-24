@@ -39,7 +39,7 @@ public class ChairRepositoryJpa implements ChairRepository {
 
 	@Override
 	public Chair save(Chair chair) {
-		chair.changeStatus(chair.isStatus());
+		chair.changeStatus(chair.getStatus());
 		repositoryChair.save(ChairMapper.domainToEntity(chair));
 		return chair;
 	}

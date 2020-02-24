@@ -36,8 +36,8 @@ class LookForChairsTest {
         //arrange
         List<Chair> chairs = new ArrayList<Chair>();
         
-        chairs.add(new ChairBuilder().withId(1L).withName("A1").withStatus(true).build());
-        chairs.add(new ChairBuilder().withId(2L).withName("A2").withStatus(true).build());
+        chairs.add(new ChairBuilder().withId(1L).withName("A1").withStatus("Disponible").build());
+        chairs.add(new ChairBuilder().withId(2L).withName("A2").withStatus("Disponible").build());
 		        
         when(this.chairRepository.findAll()).thenReturn(chairs);
         //act

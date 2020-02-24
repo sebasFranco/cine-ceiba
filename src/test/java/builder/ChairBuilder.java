@@ -6,12 +6,12 @@ public class ChairBuilder {
 
 	private static Long id;
 	private static String name;
-	private static boolean status;
+	private static String status;
 
 	public ChairBuilder() {
 		this.id = 1L;
 		this.name = "A1";
-		this.status = true;
+		this.status = "Disponible";
 	}
 
 	public ChairBuilder withId(Long id) {
@@ -24,7 +24,7 @@ public class ChairBuilder {
 		return this;
 	}
 
-	public ChairBuilder withStatus(boolean status) {
+	public ChairBuilder withStatus(String status) {
 		this.status = status;
 		return this;
 	}

@@ -4,12 +4,12 @@ public class Chair {
 
 	private Long id;
 	private String name;
-	private boolean status;
+	private String status;
 
 	public Chair() {
 	}
 
-	public Chair(Long id, String name, boolean status) {
+	public Chair(Long id, String name, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -24,15 +24,15 @@ public class Chair {
 		return name;
 	}
 
-	public boolean isStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void changeStatus(boolean status) {
-		if (status) {
-			this.status = false;
+	public void changeStatus(String status) {
+		if (status=="Disponible") {
+			this.status = "Ocupado";
 		} else {
-			this.status = true;
+			this.status = "Disponible";
 		}
 	}
 

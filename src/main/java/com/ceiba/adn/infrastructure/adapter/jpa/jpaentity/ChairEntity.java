@@ -19,12 +19,12 @@ public class ChairEntity {
 	private String name;
 
 	@NotNull
-	private boolean status;
+	private String status;
 
 	public ChairEntity() {
 	}
 
-	public ChairEntity(Long id, @NotNull String name, @NotNull boolean status) {
+	public ChairEntity(Long id, @NotNull String name, @NotNull String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -39,7 +39,7 @@ public class ChairEntity {
 		return name;
 	}
 
-	public boolean isStatus() {
+	public String getStatus() {
 		return status;
 	}
 

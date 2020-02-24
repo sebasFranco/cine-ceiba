@@ -14,25 +14,25 @@ class ChairTest {
 	void testChangeStatusTrue() {
 
 		// Arrange
-		Chair chair = anChair().withStatus(true).build();
+		Chair chair = anChair().withStatus("Disponible").build();
 
 		// Act
-		chair.changeStatus(chair.isStatus());
+		chair.changeStatus(chair.getStatus());
 
 		// Assert
-		assertEquals(false, chair.isStatus());
+		assertEquals("Ocupado", chair.getStatus());
 	}
 	
 	@Test
 	void testChangeStatusFalse() {
 
 		// Arrange
-		Chair chair = anChair().withStatus(false).build();
+		Chair chair = anChair().withStatus("Ocupado").build();
 
 		// Act
-		chair.changeStatus(chair.isStatus());
+		chair.changeStatus(chair.getStatus());
 
 		// Assert
-		assertEquals(true, chair.isStatus());
+		assertEquals("Disponible", chair.getStatus());
 	}
 }
