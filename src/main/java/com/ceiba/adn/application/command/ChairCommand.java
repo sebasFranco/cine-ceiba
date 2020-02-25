@@ -5,9 +5,6 @@ public class ChairCommand {
 	private String name;
 	private String status;
 
-	public ChairCommand() {
-	}
-
 	public ChairCommand(Long id, String name, String status) {
 		super();
 		this.id = id;
@@ -15,15 +12,7 @@ public class ChairCommand {
 		this.status = status;
 	}
 
-	public String isStatus() {
-		return status;
-	}
-
 	public Long getId() {
 		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 }

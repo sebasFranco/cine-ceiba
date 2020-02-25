@@ -20,10 +20,6 @@ public class ChairRepositoryJpa implements ChairRepository {
 
 	private JpaChairRepository repositoryChair;
 
-	public ChairRepositoryJpa() {
-		super();
-	}
-
 	@Autowired
 	public ChairRepositoryJpa(JpaChairRepository repositoryChair) {
 		this.repositoryChair = repositoryChair;

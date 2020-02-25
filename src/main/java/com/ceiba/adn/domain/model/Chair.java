@@ -6,9 +6,6 @@ public class Chair {
 	private String name;
 	private String status;
 
-	public Chair() {
-	}
-
 	public Chair(Long id, String name, String status) {
 		super();
 		this.id = id;

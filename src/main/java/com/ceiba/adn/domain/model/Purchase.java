@@ -10,8 +10,6 @@ import com.ceiba.adn.domain.exceptions.InvalidPurchaseTimeException;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class Purchase {
 
 	private Long id;
@@ -21,9 +19,7 @@ public class Purchase {
 	private int purchaseDay;
 	private double total;
 
-	public Purchase() {
-	}
-
+	
 	public Purchase(Long id, Long chair, Long idClient, int purchaseTime, int purchaseDay, double total) {
 		super();
 		this.id = id;
