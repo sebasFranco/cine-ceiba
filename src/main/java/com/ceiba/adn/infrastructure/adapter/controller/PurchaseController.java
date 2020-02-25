@@ -61,6 +61,6 @@ public class PurchaseController {
 	@PatchMapping
 	public String delete(@RequestBody PurchaseCommand purchaseCommand) {
 		deleteService.deletePurchase(purchaseCommand);
-		return "redirect:/purchase";
+		return "redirect:/Purchase";
 	}
 }
