@@ -49,11 +49,6 @@ public class PurchaseRepositoryJpa implements PurchaseRepository {
 	}
 
 	@Override
-	public Purchase findById(Long id) {
-		return PurchaseMapper.entityToDomain(repositoryPurchase.getOne(id));
-	}
-
-	@Override
 	public void save(Purchase purchase) {
 		repositoryChair.save(repositoryChair.findById(purchase.getChair()));
 		repositoryPurchase.save(PurchaseMapper.domainToEntity(purchase));
