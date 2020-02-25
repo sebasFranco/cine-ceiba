@@ -23,9 +23,6 @@ import com.ceiba.adn.application.command.PurchaseCommand;
 import com.ceiba.adn.application.command.ChairCommand;
 import com.ceiba.adn.domain.model.Purchase;
 
-import net.bytebuddy.asm.Advice.Return;
-
-
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH})
 @RequestMapping("/Purchase")
