@@ -3,7 +3,7 @@ package com.ceiba.adn.infrastructure.adapter.jpa.mapper;
 import com.ceiba.adn.domain.model.Chair;
 import com.ceiba.adn.infrastructure.adapter.jpa.jpaentity.ChairEntity;
 
-public class ChairMapper {
+public final class ChairMapper {
 	
 	private ChairMapper() {}
 
