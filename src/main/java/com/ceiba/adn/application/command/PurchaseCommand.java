@@ -22,8 +22,12 @@ public class PurchaseCommand {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
+	public double getTotal() {
+		return total;
+	}
+
+	public int getPurchaseTime() {
+		return purchaseTime;
 	}
 
 	public Long getChair() {
@@ -34,15 +38,12 @@ public class PurchaseCommand {
 		return idClient;
 	}
 
-	public int getPurchaseTime() {
-		return purchaseTime;
+	public Long getId() {
+		return id;
 	}
 
 	public int getPurchaseDay() {
 		return purchaseDay;
 	}
 
-	public double getTotal() {
-		return total;
-	}
 }

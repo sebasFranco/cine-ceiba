@@ -46,27 +46,28 @@ public class PurchaseEntity {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public Long getChair() {
 		return chair;
 	}
 
-	public Long getIdClient() {
-		return idClient;
+	public Long getId() {
+		return id;
 	}
 
 	public int getPurchaseTime() {
 		return purchaseTime;
 	}
 
-	public int getPurchaseDay() {
-		return purchaseDay;
+	public Long getIdClient() {
+		return idClient;
 	}
 
 	public double getTotal() {
 		return total;
 	}
+
+	public int getPurchaseDay() {
+		return purchaseDay;
+	}
+
 }
