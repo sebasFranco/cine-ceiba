@@ -33,7 +33,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -59,7 +61,6 @@ public class PurchaseControllerTest {
 		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
 	}
 	
-
 	@Transactional
 	@Rollback(true)
 	@Test
@@ -71,7 +72,7 @@ public class PurchaseControllerTest {
 		mockMvc.perform(post("/Purchase")
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(objectWriter.writeValueAsString(purchase)))
-			.andExpect(status().isOk());
+			.andExpect(status().isCreated());
 	}
 	
 
@@ -90,6 +91,4 @@ public class PurchaseControllerTest {
 				.andExpect(jsonPath("$[0].chair", is(purchases.get(0).getChair().intValue())))
 				.andExpect(jsonPath("$[0].idClient", is(purchases.get(0).getIdClient().intValue())));
 	}
-	
-	
 }

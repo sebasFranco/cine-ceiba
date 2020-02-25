@@ -26,5 +26,11 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/juan.franco/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.2.3.RELEASE/dd386a02e40b915ab400a3bf9f586d2dc4c0852c/spring-web-5.2.3.RELEASE.jar" sourcepath="C:/Users/juan.franco/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.2.3.RELEASE/8a8cf73bedeb3b8bc1a320f89680507c54637b19/spring-web-5.2.3.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
