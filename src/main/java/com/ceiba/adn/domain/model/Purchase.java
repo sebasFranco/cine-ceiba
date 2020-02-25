@@ -7,6 +7,11 @@ import com.ceiba.adn.domain.constant.MovieTime;
 import com.ceiba.adn.domain.constant.TicketValue;
 import com.ceiba.adn.domain.exceptions.InvalidPurchaseTimeException;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Purchase {
 
 	private Long id;
@@ -78,7 +83,7 @@ public class Purchase {
 
 		List<Integer> dayList = List.of(Calendar.FRIDAY, Calendar.SATURDAY, Calendar.SUNDAY);
 		if (dayList.contains(dayOfWeek)) {
-			this.total = this.getTotal() * 2;
+			this.total = this.total * 2;
 		}
 		this.purchaseDay = dayOfWeek;
 	}

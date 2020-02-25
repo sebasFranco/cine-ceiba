@@ -31,16 +31,16 @@ public class ChairEntity {
 		this.status = status;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public String getName() {
 		return name;
 	}
 
 	public String getStatus() {
 		return status;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

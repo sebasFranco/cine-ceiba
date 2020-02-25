@@ -15,6 +15,10 @@ public class ChairCommand {
 		this.status = status;
 	}
 
+	public String isStatus() {
+		return status;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -22,9 +26,4 @@ public class ChairCommand {
 	public String getName() {
 		return name;
 	}
-
-	public String isStatus() {
-		return status;
-	}
-
 }

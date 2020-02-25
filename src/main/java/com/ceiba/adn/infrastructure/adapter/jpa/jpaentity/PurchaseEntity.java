@@ -3,6 +3,9 @@ package com.ceiba.adn.infrastructure.adapter.jpa.jpaentity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "purchases")
 public class PurchaseEntity {
