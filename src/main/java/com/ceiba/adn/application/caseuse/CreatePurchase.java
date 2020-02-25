@@ -6,9 +6,17 @@ import org.springframework.stereotype.Service;
 
 import com.ceiba.adn.application.command.ChairCommand;
 import com.ceiba.adn.domain.model.Purchase;
+import com.ceiba.adn.domain.ports.PurchaseRepository;
 
 @Service
 public class CreatePurchase {
+
+	PurchaseRepository purchaseRepository;
+	
+	public CreatePurchase(PurchaseRepository purchaseRepository) {
+		super();
+		this.purchaseRepository = purchaseRepository;
+	}
 
 	public Purchase createPurchase(ChairCommand chairCommand) {
 		Purchase purchase = new Purchase(chairCommand.getId());
