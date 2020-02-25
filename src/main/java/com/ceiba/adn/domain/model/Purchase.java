@@ -3,9 +3,9 @@ package com.ceiba.adn.domain.model;
 import java.util.Calendar;
 import java.util.List;
 
-import com.ceiba.adn.domain.Exceptions.InvalidPurchaseTimeException;
 import com.ceiba.adn.domain.constant.MovieTime;
 import com.ceiba.adn.domain.constant.TicketValue;
+import com.ceiba.adn.domain.exceptions.InvalidPurchaseTimeException;
 
 public class Purchase {
 

@@ -29,7 +29,7 @@ public class Chair {
 	}
 
 	public void changeStatus(String status) {
-		if (status=="Disponible") {
+		if (status.equals("Disponible")) {
 			this.status = "Ocupado";
 		} else {
 			this.status = "Disponible";

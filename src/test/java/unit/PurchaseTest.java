@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.ceiba.adn.domain.Exceptions.InvalidPurchaseTimeException;
 import com.ceiba.adn.domain.constant.TicketValue;
+import com.ceiba.adn.domain.exceptions.InvalidPurchaseTimeException;
 import com.ceiba.adn.domain.model.Purchase;
 
 import static builder.PurchaseBuilder.anPurchase;
